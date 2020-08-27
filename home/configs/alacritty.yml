@@ -1,0 +1,43 @@
+env:
+    TERM: xterm-256color
+
+scrolling:
+  history: 10000
+  tabspaces: 4
+
+colors:
+  primary:
+    foreground: '#f2f3f4'
+    background: '#232425'
+  normal:
+    black: '#6d7381'
+    red: '#db5343'
+    green: '#78c42d'
+    yellow: '#fcba04'
+    blue: '#1da1f2'
+    magenta: '#f94a76'
+    cyan: '#30d1f2'
+    white: '#8f9fa1'
+  bold:
+    black: '#777e8d'
+    red: '#db5343'
+    green: '#84c940'
+    yellow: '#fcc01a'
+    blue: '#31a9f3'
+    magenta: '#f95882'
+    cyan: '#42d5f3'
+    white: '#d9dbdf'
+
+background_opacity: 0.35
+
+font:
+  size: 9
+  normal:
+    family: FiraCode
+    style: Regular
+  bold:
+    family: FiraCode
+    style: Bold
+  italic:
+    family: FiraCode
+    style: Italic
