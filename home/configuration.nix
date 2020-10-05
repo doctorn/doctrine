@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+    (import "${builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-20.03.tar.gz}/nixos")
   ];
 
   users = {
@@ -40,6 +40,7 @@
         vim
         compton
         feh
+        yarn
       ];
 
       xsession.enable = true;
