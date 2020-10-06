@@ -70,6 +70,7 @@ in
           ./configs/vim.nix
           ./configs/fish.nix
           ./configs/git.nix
+          ./configs/gtk.nix
           (import ./configs/i3.nix config.doctrine)
         ];
 
@@ -90,6 +91,7 @@ in
             i3blocks
             dmenu
             compton
+            dconf
 
             firefox
             spotify
@@ -99,6 +101,12 @@ in
 
             font-awesome_5
             fira-code 
+            fira-code-symbols
+            noto-fonts
+            noto-fonts-cjk
+            noto-fonts-emoji
+            liberation_ttf
+            dejavu_fonts
 
             yarn
             gnumake
