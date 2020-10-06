@@ -1,5 +1,16 @@
 { pkgs, ... }:
 
+let
+  iro = pkgs.vimUtils.buildVimPlugin {
+    name = "iro";
+    src = pkgs.fetchFromGitHub {
+      owner = "doctorn";
+      repo = "iro";
+      rev = "7268dc5f1ff888071975d65e46f1dfb631657d8c";
+      sha256 = "1sxmdyz39vzjqpi74w0zrc52wnni0n5bsj0ks6lixx7cmw8pwh4q";
+    };
+  };
+in
 {
   programs.vim = {
     enable = true;
@@ -15,7 +26,7 @@
       vim-nix
       vim-nix
       agda-vim
-      gruvbox
+      iro
     ];
     extraConfig = ''
       set exrc
@@ -23,7 +34,7 @@
 
       syntax on
       set background=dark
-      colorscheme gruvbox
+      colorscheme iro
 
       set nocompatible
       set modelines=0

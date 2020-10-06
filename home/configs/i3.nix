@@ -148,6 +148,7 @@ in {
 
       ${defaultWorkspace} output primary
 
+      exec --no-startup-id ${pkgs.networkmanagerapplet}/bin/nm-applet
       exec --no-startup-id ${pkgs.compton}/bin/compton -b -f
       exec_always feh --bg-fill ${./alone.jpg}
     '';

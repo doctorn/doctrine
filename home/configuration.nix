@@ -85,19 +85,27 @@ in
 
           packages = with pkgs; [
             nodejs
+
             i3
             i3blocks
             dmenu
+            compton
+
             firefox
+            spotify
             alacritty
+            feh
+            networkmanagerapplet
+
             font-awesome_5
             fira-code 
-            compton
-            feh
+
             yarn
             gnumake
             clang
             wget
+            rustup
+            python3
           ];
         };
       };

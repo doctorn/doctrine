@@ -7,6 +7,8 @@
     ./home/configuration.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
     font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
@@ -15,7 +17,11 @@
 
   time.timeZone = "Europe/London";
 
-  environment.systemPackages = with pkgs; [];
+  systemd.packages = [
+    pkgs.networkmanager
+  ];
+
+  networking.networkmanager.enable = true;
 
   services.xserver = {
     enable = true;
