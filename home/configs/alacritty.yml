@@ -31,7 +31,7 @@ colors:
 background_opacity: 0.35
 
 font:
-  size: 9
+  size: 8.5
   normal:
     family: FiraCode
     style: Regular

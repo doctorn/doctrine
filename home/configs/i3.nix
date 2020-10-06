@@ -1,35 +1,94 @@
-{ pkgs, ... }:
+doctrine:
+{ config, pkgs, ... }:
 
-{
+let
+  modifier = "Mod4";
+  workspaces = {
+    one = "1";
+    two = "2";
+    three = "3";
+    four = "4";
+    five = "5";
+    six = "6";
+    seven = "7";
+    eight = "8";
+    nine = "9";
+    ten = "10";
+  };
+in {
   xsession.enable = true;
   xsession.scriptPath = ".hm-xsession";
   xsession.windowManager.i3 = {
     enable = true;
-    config = let
-      modifier = "Mod4";
-      workspaces = {
-        one = "1";
-        two = "2";
-        three = "3";
-        four = "4";
-        five = "5";
-        six = "6";
-        seven = "7";
-        eight = "8";
-        nine = "9";
-        ten = "10";
-      };
-    in
-    {
+    config = {
       bars = [
         {
           position = "top";
+          fonts = [ "Fira Code 10" ];
+          colors = with doctrine.colors; {
+            separator = "#${black}";
+            background = "#${zero}";
+            statusline = "#${light0}";
+            focusedWorkspace = {
+              background = "#${zero}";
+              border = "#${zero}";
+              text = "#${light1}";
+            };
+            activeWorkspace = {
+              background = "#${dark0}";
+              border = "#${zero}";
+              text = "#${black}";
+            };
+            inactiveWorkspace = {
+              background = "#${zero}";
+              border = "#${zero}";
+              text = "#${black}";
+            };
+            urgentWorkspace = {
+              background = "#${zero}";
+              border = "#${zero}";
+              text = "#${orange}";
+            };
+          };
         }
       ];
 
-      keybindings = {
+      colors = with doctrine.colors; {
+        focused = {
+          background = "#${zero}";
+          border = "#${zero}";
+          childBorder = "#${zero}";
+          indicator = "#${cyan}";
+          text = "#${light1}";
+        };
+        focusedInactive = {
+          background = "#${dark0}";
+          border = "#${dark0}";
+          childBorder = "#${dark0}";
+          indicator = "#${cyan}";
+          text = "#${black}";
+        };
+        unfocused = {
+          background = "#${dark0}";
+          border = "#${dark0}";
+          childBorder = "#${dark0}";
+          indicator = "#${cyan}";
+          text = "#${black}";
+        };
+        urgent = {
+          background = "#${dark0}";
+          border = "#${orange}";
+          childBorder = "#${orange}";
+          indicator = "#${cyan}";
+          text = "#${orange}";
+        };
+      };
+
+      fonts = [ "Fira Code 10" ];
+
+      keybindings = with doctrine.colors; {
         "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
-        "${modifier}+d" = "exec --no-startup-id dmenu_run";
+        "${modifier}+d" = "exec --no-startup-id dmenu_run -fn 'Fira Code-10:Medium' -i -nb '#${zero}' -nf '#${light2}' -sf '#${zero}' -sb '#${orange}'";
 
         "${modifier}+1" = "workspace ${workspaces.one}";
         "${modifier}+2" = "workspace ${workspaces.two}";
@@ -81,7 +140,13 @@
       };
     };
 
-    extraConfig = ''
+    extraConfig = let
+      defaultWorkspace = "workspace ${workspaces.one}";
+    in ''
+      new_window normal 0px
+
+      ${defaultWorkspace} output primary
+
       exec --no-startup-id ${pkgs.compton}/bin/compton -b -f
       exec_always feh --bg-fill ${./alone.jpg}
     '';
