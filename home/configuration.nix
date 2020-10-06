@@ -85,8 +85,6 @@ in
           language.base = "en_GB.utf8";
 
           packages = with pkgs; [
-            nodejs
-
             i3
             i3blocks
             dmenu
@@ -111,9 +109,13 @@ in
             yarn
             gnumake
             clang
+            cmake
             wget
             rustup
             python3
+            binutils
+            ninja
+            nodejs
           ];
         };
       };

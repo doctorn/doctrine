@@ -21,6 +21,7 @@
     pkgs.networkmanager
   ];
 
+  sound.enable = true;
   networking.networkmanager.enable = true;
 
   services.xserver = {
