@@ -68,8 +68,8 @@ in
       users.nathan = {pkgs, ...}: {
         imports = [
           ./configs/vim.nix
-          (import ./configs/i3.nix config.doctrine)
           ./configs/git.nix
+          (import ./configs/i3.nix config.doctrine)
         ];
 
         programs.fish.enable = true;
@@ -86,6 +86,7 @@ in
           packages = with pkgs; [
             nodejs
             i3
+            i3blocks
             dmenu
             firefox
             alacritty

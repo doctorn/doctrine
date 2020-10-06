@@ -23,6 +23,7 @@ in {
     config = {
       bars = [
         {
+          statusCommand = "${pkgs.i3blocks}/bin/i3blocks -c ${./i3blocks.conf}";
           position = "top";
           fonts = [ "Fira Code 10" ];
           colors = with doctrine.colors; {
