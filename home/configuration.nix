@@ -68,11 +68,11 @@ in
       users.nathan = {pkgs, ...}: {
         imports = [
           ./configs/vim.nix
+          ./configs/fish.nix
           ./configs/git.nix
           (import ./configs/i3.nix config.doctrine)
         ];
 
-        programs.fish.enable = true;
         programs.bash.enable = true;
 
         home = {
