@@ -7,6 +7,7 @@
     userName = "Nathan Corbyn";
     extraConfig = {
       credential.helper = "store";
+      core.askPass = "";
     };
   };
 }
