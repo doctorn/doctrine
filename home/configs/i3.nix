@@ -18,6 +18,10 @@ let
 in {
   xsession.enable = true;
   xsession.scriptPath = ".hm-xsession";
+  xsession.pointerCursor = {
+    package = pkgs.gnome3.adwaita-icon-theme;
+    name = "Adwaita";
+  }; 
   xsession.windowManager.i3 = {
     enable = true;
     config = {
