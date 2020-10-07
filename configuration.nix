@@ -21,7 +21,22 @@
     pkgs.networkmanager
   ];
 
+  environment.systemPackages = [];
+
   sound.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    support32Bit = true;
+    package = pkgs.pulseaudio.override {
+      x11Support = true;
+      jackaudioSupport = true;
+      airtunesSupport = true;
+      bluetoothSupport = true;
+      remoteControlSupport = true;
+      zeroconfSupport = true;
+    };
+  };
+
   networking.networkmanager.enable = true;
 
   services.xserver = {
