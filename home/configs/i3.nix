@@ -25,38 +25,7 @@ in {
   xsession.windowManager.i3 = {
     enable = true;
     config = {
-      bars = [
-        # {
-        #   statusCommand = "";
-        #   position = "top";
-        #   fonts = [ "Fira Code 10" ];
-        #   colors = with doctrine.colors; {
-        #     separator = "#${black}";
-        #     background = "#${zero}";
-        #     statusline = "#${light0}";
-        #     focusedWorkspace = {
-        #       background = "#${zero}";
-        #       border = "#${zero}";
-        #       text = "#${light1}";
-        #     };
-        #     activeWorkspace = {
-        #       background = "#${dark0}";
-        #       border = "#${zero}";
-        #       text = "#${black}";
-        #     };
-        #     inactiveWorkspace = {
-        #       background = "#${zero}";
-        #       border = "#${zero}";
-        #       text = "#${black}";
-        #     };
-        #     urgentWorkspace = {
-        #       background = "#${zero}";
-        #       border = "#${zero}";
-        #       text = "#${orange}";
-        #     };
-        #   };
-        # }
-      ];
+      bars = [];
 
       colors = with doctrine.colors; {
         focused = {
@@ -156,7 +125,7 @@ in {
       exec --no-startup-id ${pkgs.compton}/bin/compton -b -f
       exec_always feh --bg-fill ${./alone.jpg}
 
-      exec_always '${pkgs.systemd}/bin/systemctl --user restart polybar
+      exec --no-startup-id '${pkgs.systemd}/bin/systemctl --user restart polybar
     '';
   };
 }
