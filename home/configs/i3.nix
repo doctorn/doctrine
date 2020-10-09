@@ -26,36 +26,36 @@ in {
     enable = true;
     config = {
       bars = [
-        {
-          statusCommand = "${pkgs.i3blocks}/bin/i3blocks -c ${./i3blocks.conf}";
-          position = "top";
-          fonts = [ "Fira Code 10" ];
-          colors = with doctrine.colors; {
-            separator = "#${black}";
-            background = "#${zero}";
-            statusline = "#${light0}";
-            focusedWorkspace = {
-              background = "#${zero}";
-              border = "#${zero}";
-              text = "#${light1}";
-            };
-            activeWorkspace = {
-              background = "#${dark0}";
-              border = "#${zero}";
-              text = "#${black}";
-            };
-            inactiveWorkspace = {
-              background = "#${zero}";
-              border = "#${zero}";
-              text = "#${black}";
-            };
-            urgentWorkspace = {
-              background = "#${zero}";
-              border = "#${zero}";
-              text = "#${orange}";
-            };
-          };
-        }
+        # {
+        #   statusCommand = "";
+        #   position = "top";
+        #   fonts = [ "Fira Code 10" ];
+        #   colors = with doctrine.colors; {
+        #     separator = "#${black}";
+        #     background = "#${zero}";
+        #     statusline = "#${light0}";
+        #     focusedWorkspace = {
+        #       background = "#${zero}";
+        #       border = "#${zero}";
+        #       text = "#${light1}";
+        #     };
+        #     activeWorkspace = {
+        #       background = "#${dark0}";
+        #       border = "#${zero}";
+        #       text = "#${black}";
+        #     };
+        #     inactiveWorkspace = {
+        #       background = "#${zero}";
+        #       border = "#${zero}";
+        #       text = "#${black}";
+        #     };
+        #     urgentWorkspace = {
+        #       background = "#${zero}";
+        #       border = "#${zero}";
+        #       text = "#${orange}";
+        #     };
+        #   };
+        # }
       ];
 
       colors = with doctrine.colors; {
@@ -155,6 +155,8 @@ in {
       exec --no-startup-id ${pkgs.networkmanagerapplet}/bin/nm-applet
       exec --no-startup-id ${pkgs.compton}/bin/compton -b -f
       exec_always feh --bg-fill ${./alone.jpg}
+
+      exec_always '${pkgs.systemd}/bin/systemctl --user restart polybar
     '';
   };
 }

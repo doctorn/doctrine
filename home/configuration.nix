@@ -71,6 +71,7 @@ in
           ./configs/fish.nix
           ./configs/git.nix
           ./configs/gtk.nix
+          (import ./configs/polybar.nix config.doctrine)
           (import ./configs/i3.nix config.doctrine)
         ];
 
@@ -89,7 +90,6 @@ in
             dconf
             dmenu
             i3
-            i3blocks
 
             alacritty
             feh
