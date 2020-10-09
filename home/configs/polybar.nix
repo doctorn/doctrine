@@ -126,21 +126,6 @@ in
             fi
           ''
         );
-        click-left = mkBarScript "volume-toggle" (
-          with pkgs; ''
-            ${alsaUtils}/bin/amixer sset Master toggle
-          ''
-        );
-        scroll-up = mkBarScript "volume-up" (
-          with pkgs; ''
-            ${alsaUtils}/bin/amixer sset Master 2%+
-          ''
-        );
-        scroll-down = mkBarScript "volume-down" (
-          with pkgs; ''
-            ${alsaUtils}/bin/amixer sset Master 2%-
-          ''
-        );
       };
     };
 
