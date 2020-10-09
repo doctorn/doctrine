@@ -85,37 +85,38 @@ in
           language.base = "en_GB.utf8";
 
           packages = with pkgs; [
-            i3
-            i3blocks
-            dmenu
             compton
             dconf
+            dmenu
+            i3
+            i3blocks
 
-            firefox
-            spotify
             alacritty
             feh
+            firefox
             networkmanagerapplet
+            spotify
 
-            font-awesome_5
+            dejavu_fonts
             fira-code 
             fira-code-symbols
+            font-awesome_5
+            liberation_ttf
             noto-fonts
             noto-fonts-cjk
             noto-fonts-emoji
-            liberation_ttf
-            dejavu_fonts
 
-            yarn
-            gnumake
+            binutils
             clang
             cmake
-            wget
-            rustup
-            python3
-            binutils
+            gnumake
+            llvm
             ninja
             nodejs
+            python3
+            rustup
+            yarn
+            wget
           ];
         };
       };
