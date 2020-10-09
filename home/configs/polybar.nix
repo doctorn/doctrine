@@ -38,11 +38,12 @@ in
         "border-right-size" = "0";
         "border-left-size" = "0";
         "border-color" = "#${zero}";
+        "tray-position" = "right";
       };
       "module/date" = {
         type = "custom/script";
         interval = "3.0";
-        format-foreground = "#${doctrine.colors.light1}";
+        format-foreground = "#${doctrine.colors.red}";
         exec = mkBarScript "date" (
           with pkgs; ''
             echo " $(${coreutils}/bin/date +"%d/%m/%Y")"
@@ -52,7 +53,7 @@ in
       "module/time" = {
         type = "custom/script";
         interval = "1.0";
-        format-foreground = "#${doctrine.colors.light1}";
+        format-foreground = "#${doctrine.colors.yellow}";
         exec = mkBarScript "time" (
           ''
             echo " $(${pkgs.coreutils}/bin/date +%H:%M:%S)"
@@ -72,7 +73,7 @@ in
       "module/volume" = {
         type = "custom/script";
         interval = "0.01";
-        format-foreground = "#${doctrine.colors.light1}";
+        format-foreground = "#${doctrine.colors.green}";
         exec = mkBarScript "volume-status" (
           with pkgs; ''
             if [[ $(${alsaUtils}/bin/amixer get Master | \
@@ -120,9 +121,11 @@ in
                       org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' \
                       string:'Metadata' 2>/dev/null | ${gawk}/bin/awk '/title/{getline; print}' | \
                       ${coreutils}/bin/cut -d'"' -f2)"
-            if [ "$STRING" != " - " ] && [ "$STRING" != " ] - " ];
+            if [ "$STRING" != " - " ];
             then
                 echo " $STRING"
+            else
+                echo " spotify"
             fi
           ''
         );
