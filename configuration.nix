@@ -7,6 +7,9 @@
     ./home/configuration.nix
   ];
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+
   nixpkgs.config.allowUnfree = true;
 
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -38,21 +41,4 @@
   };
 
   networking.networkmanager.enable = true;
-
-  services.xserver = {
-    enable = true;
-    layout = "gb";
-    displayManager.lightdm.enable = true;
-    displayManager.defaultSession = "home-manager";
-    displayManager.session = [
-      {
-        name = "home-manager";
-        manage = "desktop";
-        start = ''
-          ${pkgs.runtimeShell} $HOME/.hm-xsession
-          waitPID=$!
-        '';
-      }
-    ];
-  };
 }

@@ -64,6 +64,39 @@ in
       mutableUsers = false;
     };
 
+    services.xserver = {
+      enable = true;
+      layout = "gb";
+      displayManager.lightdm = {
+        enable = true;
+        background = ./configs/alone.jpg;
+        greeters.gtk = {
+          enable = true;
+          iconTheme = {
+            package = pkgs.paper-icon-theme;
+            name = "Paper";
+          };
+          theme = {
+            package = pkgs.arc-theme;
+            name = "Arc-Darker";
+          };
+          clock-format = "%H:%M";
+          indicators = [ "~clock" "~power" ];
+        };
+      };
+      displayManager.defaultSession = "home-manager";
+      displayManager.session = [
+        {
+          name = "home-manager";
+          manage = "desktop";
+          start = ''
+            ${pkgs.runtimeShell} $HOME/.hm-xsession
+            waitPID=$!
+          '';
+        }
+      ];
+    };
+
     home-manager = {
       users.nathan = {pkgs, ...}: {
         imports = [
@@ -106,9 +139,12 @@ in
             noto-fonts-cjk
             noto-fonts-emoji
 
+            haskellPackages.Agda
             binutils
             clang
             cmake
+            ghc
+            haskellPackages.ghcide
             gnumake
             llvm
             ninja
