@@ -24,7 +24,8 @@
     pkgs.networkmanager
   ];
 
-  environment.systemPackages = [];
+  environment.pathsToLink = [ "/share/agda" ];
+  environment.systemPackages = [ pkgs.AgdaStdlib ];
 
   sound.enable = true;
   hardware.pulseaudio = {

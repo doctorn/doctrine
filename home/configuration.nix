@@ -101,6 +101,7 @@ in
       users.nathan = {pkgs, ...}: {
         imports = [
           ./configs/vim.nix
+          ./configs/agda.nix
           ./configs/fish.nix
           ./configs/git.nix
           ./configs/gtk.nix
