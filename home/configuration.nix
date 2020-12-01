@@ -69,7 +69,7 @@ in
       layout = "gb";
       displayManager.lightdm = {
         enable = true;
-        background = ./configs/alone.jpg;
+        background = ./configs/bg.jpg;
         greeters.gtk = {
           enable = true;
           iconTheme = {

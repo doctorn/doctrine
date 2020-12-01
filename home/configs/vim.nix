@@ -24,7 +24,6 @@ in
       vim-airline
       typescript-vim
       vim-nix
-      vim-nix
       agda-vim
       iro
     ];

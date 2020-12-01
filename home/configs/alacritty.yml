@@ -28,7 +28,7 @@ colors:
     cyan: '#42d5f3'
     white: '#d9dbdf'
 
-background_opacity: 0.35
+background_opacity: 0.5
 
 font:
   size: 8.5

@@ -123,9 +123,9 @@ in {
 
       exec --no-startup-id ${pkgs.networkmanagerapplet}/bin/nm-applet
       exec --no-startup-id ${pkgs.compton}/bin/compton -b -f
-      exec_always feh --bg-fill ${./alone.jpg}
+      exec_always feh --bg-fill ${./bg.jpg}
 
-      exec --no-startup-id '${pkgs.systemd}/bin/systemctl --user restart polybar
+      exec_always '${pkgs.systemd}/bin/systemctl --user restart polybar
     '';
   };
 }
