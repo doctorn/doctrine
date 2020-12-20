@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    (import "${builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-20.03.tar.gz}/nixos")
+    (import "${builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz}/nixos")
   ];
 
   options.doctrine.colors =
@@ -67,6 +67,7 @@ in
     services.xserver = {
       enable = true;
       layout = "gb";
+      synaptics.enable = true;
       displayManager.lightdm = {
         enable = true;
         background = ./configs/bg.jpg;

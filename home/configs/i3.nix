@@ -125,7 +125,7 @@ in {
       exec --no-startup-id ${pkgs.compton}/bin/compton -b -f
       exec_always feh --bg-fill ${./bg.jpg}
 
-      exec_always '${pkgs.systemd}/bin/systemctl --user restart polybar
+      exec_always ${pkgs.systemd}/bin/systemctl --user restart polybar
     '';
   };
 }
