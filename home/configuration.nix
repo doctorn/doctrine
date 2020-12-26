@@ -70,19 +70,28 @@ in
       libinput.enable = true;
       displayManager.lightdm = {
         enable = true;
-        background = ./configs/bg.jpg;
-        greeters.gtk = {
+        greeters.mini = {
           enable = true;
-          iconTheme = {
-            package = pkgs.paper-icon-theme;
-            name = "Paper";
-          };
-          theme = {
-            package = pkgs.arc-theme;
-            name = "Arc-Darker";
-          };
-          clock-format = "%H:%M";
-          indicators = [ "~clock" "~power" ];
+          user = "nathan";
+          extraConfig = ''
+            [greeter]
+            show-password-label = false
+            invalid-password-text = invalid password
+            show-image-on-all-monitors = true
+            password-alignment = left
+
+            [greeter-theme]
+            font-size = 11
+            font = FiraCode
+            border-width = 0
+            window-color = #${config.doctrine.colors.zero}
+            password-background-color = #${config.doctrine.colors.zero}
+            password-border-width = 0
+            password-color = #${config.doctrine.colors.light0}
+            error-color = #${config.doctrine.colors.red}
+            background-image = "${./configs/bg.jpg}"
+            layout-spacing = 0
+          '';
         };
       };
       displayManager.defaultSession = "home-manager";
