@@ -44,7 +44,7 @@ in
         "tray-offset-x" = "0";
         "tray-padding" = "10";
         "tray-transparent" = false;
-        "tray-background" = "#${doctrine.colors.zero}";
+        "tray-background" = "#${zero}";
         "tray-detached" = false;
       };
       "module/date" = {
@@ -115,11 +115,37 @@ in
       };
       "module/battery" = {
         type = "custom/script";
-        interval = "1.0";
+        interval = "1";
         format-foreground = "#${doctrine.colors.black}";
         exec = mkBarScript "battery" (
           ''
-            echo " battery"
+            BATTERY=0
+            BATTERY_INFO=$(${pkgs.acpi}/bin/acpi -b | ${pkgs.gnugrep}/bin/grep "Battery ''${BATTERY}")
+            BATTERY_STATE=$(echo "''${BATTERY_INFO}" | ${pkgs.gnugrep}/bin/grep -wo "Full\|Charging\|Discharging")
+            BATTERY_POWER=$(echo "''${BATTERY_INFO}" | ${pkgs.gnugrep}/bin/grep -o '[0-9]\+%' | ${pkgs.coreutils}/bin/tr -d '%')
+
+            URGENT_VALUE=10
+            LOW_VALUE=25
+            MIDDLE_VALUE=65
+            HIGH_VALUE=90
+
+            if [[ "''${BATTERY_STATE}" = "Charging" ]]; then
+              echo "''${BATTERY_POWER}%"
+            elif [[ "''${BATTERY_STATE}" = "Discharging" ]]; then
+              if [[ "''${BATTERY_POWER}" -le "''${URGENT_VALUE}" ]]; then
+                echo " ''${BATTERY_POWER}%"
+              elif [[ "''${BATTERY_POWER}" -ge "''${HIGH_VALUE}"  ]]; then
+                echo " ''${BATTERY_POWER}%"
+              elif [[ "''${BATTERY_POWER}" -ge "''${MIDDLE_VALUE}"  ]]; then
+                echo " ''${BATTERY_POWER}%"
+              elif [[ "''${BATTERY_POWER}" -ge "''${LOW_VALUE}"  ]]; then
+                echo " ''${BATTERY_POWER}%"
+              else
+                echo " ''${BATTERY_POWER}%"
+              fi
+            else
+              echo " ''${BATTERY_POWER}%"
+            fi
           ''
         );
       };
