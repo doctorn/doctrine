@@ -62,7 +62,8 @@ in {
 
       keybindings = with doctrine.colors; {
         "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
-        "${modifier}+d" = "exec --no-startup-id dmenu_run -fn 'Fira Code-10:Medium' -i -nb '#${zero}' -nf '#${light2}' -sf '#${zero}' -sb '#${orange}'";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        "${modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
 
         "${modifier}+1" = "workspace ${workspaces.one}";
         "${modifier}+2" = "workspace ${workspaces.two}";
@@ -122,6 +123,8 @@ in {
       ${defaultWorkspace} output primary
 
       exec --no-startup-id ${pkgs.networkmanagerapplet}/bin/nm-applet
+      exec --no-startup-id ${pkgs.blueman}/bin/blueman-applet
+      exec --no-startup-id ${pkgs.dropbox}/bin/dropbox
       exec --no-startup-id ${pkgs.compton}/bin/compton -b -f
       exec_always feh --bg-fill ${./bg.jpg}
 

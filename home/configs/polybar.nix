@@ -26,24 +26,31 @@ in
         "font-0" = "Fira Code:size=10";
         "font-1" = "FontAwesome5Free:style=Solid:size=9;0";
         "font-2" = "FontAwesome5Brands:style=Solid:size=9;0";
-        "height" = "17";
+        "height" = "25";
         "locale" = config.home.language.base;
         "module-margin" = "1";
-        "padding" = "0.5";
-        "modules-right" = [ "spotify" "volume" "time" "date" ];
-        "modules-left" = [ "i3" ];
+        "padding" = "1";
+        "modules-right" = [ "battery" "date" ];
+        "modules-center" = [ "time" ];
+        "modules-left" = [ "i3" "spotify" "volume" ];
         "monitor" = "\${env:MONITOR:}";
-        "border-top-size" = "3";
+        "border-top-size" = "0";
         "border-bottom-size" = "0";
         "border-right-size" = "0";
         "border-left-size" = "0";
         "border-color" = "#${zero}";
         "tray-position" = "right";
+        "tray-offset-y" = "0";
+        "tray-offset-x" = "0";
+        "tray-padding" = "10";
+        "tray-transparent" = false;
+        "tray-background" = "#${doctrine.colors.zero}";
+        "tray-detached" = false;
       };
       "module/date" = {
         type = "custom/script";
         interval = "3.0";
-        format-foreground = "#${doctrine.colors.red}";
+        format-foreground = "#${doctrine.colors.black}";
         exec = mkBarScript "date" (
           with pkgs; ''
             echo " $(${coreutils}/bin/date +"%d/%m/%Y")"
@@ -53,7 +60,7 @@ in
       "module/time" = {
         type = "custom/script";
         interval = "1.0";
-        format-foreground = "#${doctrine.colors.yellow}";
+        format-foreground = "#${doctrine.colors.black}";
         exec = mkBarScript "time" (
           ''
             echo " $(${pkgs.coreutils}/bin/date +%H:%M:%S)"
@@ -73,7 +80,7 @@ in
       "module/volume" = {
         type = "custom/script";
         interval = "0.01";
-        format-foreground = "#${doctrine.colors.green}";
+        format-foreground = "#${doctrine.colors.black}";
         exec = mkBarScript "volume-status" (
           with pkgs; ''
             if [[ $(${alsaUtils}/bin/amixer get Master | \
@@ -106,10 +113,20 @@ in
           ''
         );
       };
+      "module/battery" = {
+        type = "custom/script";
+        interval = "1.0";
+        format-foreground = "#${doctrine.colors.black}";
+        exec = mkBarScript "battery" (
+          ''
+            echo " battery"
+          ''
+        );
+      };
       "module/spotify" = {
         type = "custom/script";
         interval = "1";
-        format-foreground = "#${doctrine.colors.blue}";
+        format-foreground = "#${doctrine.colors.magenta}";
         exec = mkBarScript "spotify-status" (
           with pkgs; ''
             STRING="$(${dbus}/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \

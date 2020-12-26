@@ -49,5 +49,7 @@
   
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  hardware.bluetooth.enable = true;
+
   system.stateVersion = "20.09";
 }

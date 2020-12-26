@@ -106,6 +106,7 @@ in
           ./configs/fish.nix
           ./configs/git.nix
           ./configs/gtk.nix
+          ./configs/rofi.nix
           (import ./configs/polybar.nix config.doctrine)
           (import ./configs/i3.nix config.doctrine)
           (import ./configs/alacritty.nix config.doctrine)
@@ -120,7 +121,6 @@ in
           packages = with pkgs; [
             compton
             dconf
-            dmenu
             i3
 
             alacritty
@@ -128,6 +128,8 @@ in
             firefox
             networkmanagerapplet
             spotify
+            dropbox
+            blueman
 
             dejavu_fonts
             fira-code 

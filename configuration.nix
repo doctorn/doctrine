@@ -3,7 +3,7 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    ./hosts/melvin.nix
+    ./hosts/mithridate.nix
     ./home/configuration.nix
   ];
 
@@ -25,7 +25,10 @@
   ];
 
   environment.pathsToLink = [ "/share/agda" ];
-  environment.systemPackages = [ pkgs.AgdaStdlib ];
+  environment.systemPackages = [ pkgs.acpi ];
+
+  services.acpid.enable = true;
+  services.blueman.enable = true;
 
   sound.enable = true;
   hardware.pulseaudio = {
