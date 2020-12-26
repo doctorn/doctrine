@@ -82,7 +82,8 @@ in
 
             [greeter-theme]
             font-size = 11
-            font = FiraCode
+            font = "FiraCode"
+            font-weight = normal
             border-width = 0
             window-color = #${config.doctrine.colors.zero}
             password-background-color = #${config.doctrine.colors.zero}
