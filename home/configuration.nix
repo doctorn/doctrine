@@ -67,7 +67,7 @@ in
     services.xserver = {
       enable = true;
       layout = "gb";
-      synaptics.enable = true;
+      libinput.enable = true;
       displayManager.lightdm = {
         enable = true;
         background = ./configs/bg.jpg;
@@ -108,15 +108,12 @@ in
           ./configs/gtk.nix
           (import ./configs/polybar.nix config.doctrine)
           (import ./configs/i3.nix config.doctrine)
+          (import ./configs/alacritty.nix config.doctrine)
         ];
 
         programs.bash.enable = true;
 
         home = {
-          file = {
-            ".config/alacritty/alacritty.yml".source = ./configs/alacritty.yml;
-          };
-
           keyboard.layout = "gb";
           language.base = "en_GB.utf8";
 
