@@ -120,7 +120,12 @@ in
         exec = mkBarScript "battery" (
           ''
             BATTERY=0
-            BATTERY_INFO=$(${pkgs.acpi}/bin/acpi -b | ${pkgs.gnugrep}/bin/grep "Battery ''${BATTERY}")
+            BATTERY_INFO=$(${pkgs.acpi}/bin/acpi -b 2> /dev/null | ${pkgs.gnugrep}/bin/grep "Battery ''${BATTERY}")
+
+            if [[ ''${BATTERY_INFO} = "" ]]; then
+              exit 0
+            fi
+
             BATTERY_STATE=$(echo "''${BATTERY_INFO}" | ${pkgs.gnugrep}/bin/grep -wo "Full\|Charging\|Discharging")
             BATTERY_POWER=$(echo "''${BATTERY_INFO}" | ${pkgs.gnugrep}/bin/grep -o '[0-9]\+%' | ${pkgs.coreutils}/bin/tr -d '%')
 

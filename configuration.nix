@@ -3,7 +3,7 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    ./hosts/mithridate.nix
+    ./hosts/melvin.nix
     ./home/configuration.nix
   ];
 
