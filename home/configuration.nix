@@ -150,7 +150,7 @@ in
             noto-fonts-cjk
             noto-fonts-emoji
 
-            haskellPackages.Agda
+            agda
             binutils
             clang
             cmake
