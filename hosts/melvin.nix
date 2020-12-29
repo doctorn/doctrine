@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   boot = {
     initrd.availableKernelModules = [
       "ahci"
@@ -15,8 +17,20 @@
     ];
 
     initrd.kernelModules = [ ];
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = [
+      "kvm-amd"
+      "amdgpu"
+      "radeon"
+    ];
     extraModulePackages = [ ];
+
+    kernelParams = [
+      "radeon.cik_support=0"
+      "radeon.si_support=0"
+      "amdgpu.cik_support=1"
+      "amdgpu.si_support=1"
+      "amdgpu.dc=1"
+    ];
 
     loader = {
       systemd-boot.enable = true;

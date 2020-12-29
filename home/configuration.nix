@@ -32,7 +32,7 @@ in
       brightRed = mkColour "bright red" "db5343";
       brightGreen = mkColour "bright green" "84c940";
       brightYellow = mkColour "bright yellow" "fcc01a";
-      brightBlue = mkColour "bright blue" "f95882";
+      brightBlue = mkColour "bright blue" "31a9f3";
       brightMagenta = mkColour "bright magenta" "f95882";
       brightCyan = mkColour "bright cyan" "42d5f3";
       brightOrange = mkColour "bright orange" "fe8b2d";
@@ -112,7 +112,6 @@ in
       users.nathan = {pkgs, ...}: {
         imports = [
           ./configs/vim.nix
-          ./configs/agda.nix
           ./configs/fish.nix
           ./configs/git.nix
           ./configs/gtk.nix
@@ -140,6 +139,7 @@ in
             spotify
             dropbox
             blueman
+            neofetch
 
             dejavu_fonts
             fira-code 
@@ -150,7 +150,7 @@ in
             noto-fonts-cjk
             noto-fonts-emoji
 
-            agda
+            (agda.withPackages [ agdaPackages.standard-library ])
             binutils
             clang
             cmake

@@ -25,7 +25,9 @@
   ];
 
   environment.pathsToLink = [ "/share/agda" ];
-  environment.systemPackages = [ pkgs.acpi ];
+  environment.systemPackages = with pkgs; [
+    acpi
+  ];
 
   services.acpid.enable = true;
   services.blueman.enable = true;
