@@ -154,8 +154,8 @@ in
             binutils
             clang
             cmake
+            direnv
             ghc
-            haskellPackages.ghcide
             gnumake
             llvm
             ninja

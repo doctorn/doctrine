@@ -10,6 +10,8 @@
       set -x COLORTERM truecolor
       set -x TERM xterm-256color
 
+      eval (${pkgs.direnv}/bin/direnv hook fish)
+
       function fish_prompt --description 'Write out the prompt'
         set SSH_PROMPT ""
         if [ -n "$SSH_CLIENT" ]
