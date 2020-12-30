@@ -150,7 +150,7 @@ in
             noto-fonts-cjk
             noto-fonts-emoji
 
-            (agda.withPackages [ agdaPackages.standard-library ])
+            (agda.withPackages (p: [ p.standard-library ]))
             binutils
             clang
             cmake
