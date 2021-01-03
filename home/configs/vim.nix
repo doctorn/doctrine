@@ -6,13 +6,13 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "doctorn";
       repo = "iro";
-      rev = "7268dc5f1ff888071975d65e46f1dfb631657d8c";
-      sha256 = "1sxmdyz39vzjqpi74w0zrc52wnni0n5bsj0ks6lixx7cmw8pwh4q";
+      rev = "855ab89fa59804cb664fc8435e17630cc2329366";
+      sha256 = "156g2836w2fg4gl4jpijkvyyad7fl56y0ih7wxl0g5bpalc1nfgi";
     };
   };
 in
 {
-  programs.vim = {
+  programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
       coc-nvim
@@ -101,6 +101,7 @@ in
       let g:airline#extensions#tabline#enabled = 1
 
       let g:vimfiler_as_default_explorer = 1
+		  let g:vimfiler_ignore_pattern = ['^.*\.agdai', '^\.']
 
       set statusline+=%{coc#status()}
 
@@ -196,6 +197,22 @@ in
       autocmd BufNewFile,BufRead *.mmtn setlocal filetype=rust
 
       let maplocalleader = ","
+      let g:agda_extraincpaths = ["${pkgs.agdaPackages.standard-library}/src/"]
     '';
+
+    withPython = true;
+    withPython3 = true;
+
+    extraPythonPackages = (ps: with ps; [
+      unidecode
+      pynvim
+    ]);
+
+    extraPython3Packages = (ps: with ps; [
+      pynvim
+      unidecode
+      black
+      isort
+    ]);
   };
 }

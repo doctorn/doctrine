@@ -12,6 +12,8 @@
 
       eval (${pkgs.direnv}/bin/direnv hook fish)
 
+      alias vim="nvim"
+
       function fish_prompt --description 'Write out the prompt'
         set SSH_PROMPT ""
         if [ -n "$SSH_CLIENT" ]
