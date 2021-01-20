@@ -64,6 +64,8 @@ in
       mutableUsers = false;
     };
 
+    services.gnome3.gnome-keyring.enable = true;
+
     services.xserver = {
       enable = true;
       layout = "gb";
@@ -140,6 +142,7 @@ in
             dropbox
             blueman
             neofetch
+            mailspring
 
             dejavu_fonts
             fira-code 
