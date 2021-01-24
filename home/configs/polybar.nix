@@ -135,7 +135,7 @@ in
             HIGH_VALUE=90
 
             if [[ "''${BATTERY_STATE}" = "Charging" ]]; then
-              echo "''${BATTERY_POWER}%"
+              echo " ''${BATTERY_POWER}%"
             elif [[ "''${BATTERY_STATE}" = "Discharging" ]]; then
               if [[ "''${BATTERY_POWER}" -le "''${URGENT_VALUE}" ]]; then
                 echo " ''${BATTERY_POWER}%"
