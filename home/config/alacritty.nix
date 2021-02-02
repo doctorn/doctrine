@@ -1,11 +1,10 @@
-doctrine:
 { config, lib, ... }:
 
 {
   programs.alacritty = {
     enable = true;
     settings = {
-      colors = with doctrine.colors; {
+      colors = with config.doctrine.colors; {
         primary = {
           background = "0x${zero}";
           foreground = "0x${light0}";

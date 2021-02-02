@@ -203,6 +203,8 @@ in
     withPython = true;
     withPython3 = true;
 
+    vimAlias = true;
+
     extraPythonPackages = (ps: with ps; [
       unidecode
       pynvim

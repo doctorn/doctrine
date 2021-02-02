@@ -27,7 +27,6 @@
   };
 
   networking = {
-    hostName = "mithridate";
     useDHCP = false;
     interfaces.wlp58s0.useDHCP = true;
   };

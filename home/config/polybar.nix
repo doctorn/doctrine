@@ -1,4 +1,3 @@
-doctrine:
 { config, lib, pkgs, ... }:
 
 with lib;
@@ -20,7 +19,7 @@ in
 {
   services.polybar = {
     config = {
-      "bar/${barName}" = with doctrine.colors; {
+      "bar/${barName}" = with config.doctrine.colors; {
         "bottom" = false;
         "background" = "#${zero}";
         "font-0" = "Fira Code:size=10";
@@ -50,7 +49,7 @@ in
       "module/date" = {
         type = "custom/script";
         interval = "3.0";
-        format-foreground = "#${doctrine.colors.black}";
+        format-foreground = "#${config.doctrine.colors.black}";
         exec = mkBarScript "date" (
           with pkgs; ''
             echo " $(${coreutils}/bin/date +"%d/%m/%Y")"
@@ -60,14 +59,14 @@ in
       "module/time" = {
         type = "custom/script";
         interval = "1.0";
-        format-foreground = "#${doctrine.colors.black}";
+        format-foreground = "#${config.doctrine.colors.black}";
         exec = mkBarScript "time" (
           ''
             echo " $(${pkgs.coreutils}/bin/date +%H:%M:%S)"
           ''
         );
       };
-      "module/i3" = with doctrine.colors; {
+      "module/i3" = with config.doctrine.colors; {
         "type" = "internal/i3";
         "enable-click" = false;
         "enable-scroll" = false;
@@ -80,7 +79,7 @@ in
       "module/volume" = {
         type = "custom/script";
         interval = "0.01";
-        format-foreground = "#${doctrine.colors.black}";
+        format-foreground = "#${config.doctrine.colors.black}";
         exec = mkBarScript "volume-status" (
           with pkgs; ''
             if [[ $(${alsaUtils}/bin/amixer get Master | \
@@ -116,7 +115,7 @@ in
       "module/battery" = {
         type = "custom/script";
         interval = "1";
-        format-foreground = "#${doctrine.colors.black}";
+        format-foreground = "#${config.doctrine.colors.black}";
         exec = mkBarScript "battery" (
           ''
             BATTERY=0
@@ -157,7 +156,7 @@ in
       "module/spotify" = {
         type = "custom/script";
         interval = "1";
-        format-foreground = "#${doctrine.colors.magenta}";
+        format-foreground = "#${config.doctrine.colors.magenta}";
         exec = mkBarScript "spotify-status" (
           with pkgs; ''
             STRING="$(${dbus}/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \

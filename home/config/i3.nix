@@ -1,4 +1,3 @@
-doctrine:
 { config, pkgs, ... }:
 
 let
@@ -27,7 +26,7 @@ in {
     config = {
       bars = [];
 
-      colors = with doctrine.colors; {
+      colors = with config.doctrine.colors; {
         focused = {
           background = "#${zero}";
           border = "#${zero}";
@@ -60,7 +59,7 @@ in {
 
       fonts = [ "Fira Code 10" ];
 
-      keybindings = with doctrine.colors; {
+      keybindings = with config.doctrine.colors; {
         "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
