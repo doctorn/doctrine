@@ -43,6 +43,8 @@
       };
     };
   };
+  
+  hardware.enableRedistributableFirmware = true;
 
   networking = {
     useDHCP = false;
