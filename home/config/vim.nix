@@ -99,6 +99,7 @@ in
 
       let g:airline_powerline_fonts = 1
       let g:airline#extensions#tabline#enabled = 1
+      let g:airline#extensions#nvimlsp#enabled = 0
 
       let g:vimfiler_as_default_explorer = 1
 		  let g:vimfiler_ignore_pattern = ['^.*\.agdai', '^\.']

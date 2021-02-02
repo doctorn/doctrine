@@ -48,7 +48,10 @@
   
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
-  hardware.bluetooth.enable = true;
+  hardware = {
+    bluetooth.enable = true;
+    enableRedistributableFirmware = true;
+  };
 
   system.stateVersion = "20.09";
 }
