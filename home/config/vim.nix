@@ -191,19 +191,7 @@ in
 
     withPython = true;
     withPython3 = true;
-
+    viAlias = true;
     vimAlias = true;
-
-    extraPythonPackages = (ps: with ps; [
-      unidecode
-      pynvim
-    ]);
-
-    extraPython3Packages = (ps: with ps; [
-      pynvim
-      unidecode
-      black
-      isort
-    ]);
   };
 }
