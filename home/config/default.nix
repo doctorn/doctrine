@@ -3,6 +3,7 @@
 {
   imports = [
     ./vim.nix
+    ./emacs.nix
     ./fish.nix
     ./git.nix
     ./gtk.nix

@@ -66,7 +66,6 @@ in
         blueman
         neofetch
         mailspring
-        emacs
 
         dejavu_fonts
         fira-code 
