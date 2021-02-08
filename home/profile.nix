@@ -75,6 +75,7 @@ in
         noto-fonts
         noto-fonts-cjk
         noto-fonts-emoji
+        emacs-all-the-icons-fonts
 
         (agda.withPackages (p: [ p.standard-library ]))
         binutils
