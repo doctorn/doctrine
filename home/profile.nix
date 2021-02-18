@@ -78,7 +78,7 @@ in
 
         (agda.withPackages (p: [ p.standard-library ]))
         binutils
-        clang
+        clang_10
         cmake
         direnv
         ghc
