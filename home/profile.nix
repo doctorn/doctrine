@@ -59,6 +59,7 @@ in
         scrot
 
         alacritty
+        aseprite
         feh
         firefox
         networkmanagerapplet
