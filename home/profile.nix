@@ -56,6 +56,7 @@ in
         compton
         dconf
         i3
+        scrot
 
         alacritty
         feh
@@ -86,11 +87,16 @@ in
         gnumake
         llvm
         ninja
+        ngrok
         nodejs
         python3
         rustup
         yarn
+
         wget
+        tree
+        zip
+        unzip
       ];
     };
   };
