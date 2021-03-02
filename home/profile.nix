@@ -87,6 +87,8 @@ in
         ghc
         gnumake
         llvm
+        ocaml
+        opam
         ninja
         ngrok
         nodejs
