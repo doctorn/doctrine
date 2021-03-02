@@ -8,6 +8,7 @@
     extraConfig = {
       credential.helper = "store";
       core.askPass = "";
+      pull.rebase = false;
     };
   };
 }
