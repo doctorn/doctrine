@@ -100,6 +100,7 @@ in
         tree
         zip
         unzip
+        sshfs
       ];
     };
   };
