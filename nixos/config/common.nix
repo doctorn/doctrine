@@ -18,6 +18,7 @@
 
   environment.systemPackages = with pkgs; [
     acpi
+    strongswan
   ];
 
   services.acpid.enable = true;
@@ -26,5 +27,6 @@
   networking = {
     hostName = name;
     networkmanager.enable = true;
+    networkmanager.enableStrongSwan = true;
   };
 }
