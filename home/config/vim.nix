@@ -12,7 +12,7 @@ let
   };
 in
 {
-  programs.neovim = {
+  programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
       vim-sensible
@@ -188,10 +188,5 @@ in
 
       autocmd BufNewFile,BufRead *.mmtn setlocal filetype=rust
     '';
-
-    withPython = true;
-    withPython3 = true;
-    viAlias = true;
-    vimAlias = true;
   };
 }
