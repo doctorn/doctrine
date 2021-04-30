@@ -25,6 +25,7 @@ in
         "font-0" = "Fira Code:size=10";
         "font-1" = "FontAwesome5Free:style=Solid:size=9;0";
         "font-2" = "FontAwesome5Brands:style=Solid:size=9;0";
+        "font-3" = "Noto Sans CJK JP:style=Solid:size=9;0";
         "height" = "25";
         "locale" = config.home.language.base;
         "module-margin" = "1";
