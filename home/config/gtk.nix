@@ -4,12 +4,12 @@
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.paper-icon-theme;
-      name = "Paper";
+      package = pkgs.faba-icon-theme;
+      name = "Yaru";
     };
     theme = {
-      package = pkgs.arc-theme;
-      name = "Arc-Darker";
+      package = pkgs.yaru-theme;
+      name = "Yaru";
     };
   };
 }
