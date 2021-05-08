@@ -57,7 +57,10 @@ in {
         };
       };
 
-      fonts.names = [ "Fira Code 10" ];
+      fonts = {
+        names = [ "Fira Code" ];
+        size = 10.0;
+      };
 
       keybindings = with config.doctrine.colors; {
         "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";

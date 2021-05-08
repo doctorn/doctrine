@@ -5,11 +5,11 @@
     enable = true;
     iconTheme = {
       package = pkgs.faba-icon-theme;
-      name = "Yaru";
+      name = "Faba";
     };
     theme = {
-      package = pkgs.yaru-theme;
-      name = "Yaru";
+      package = pkgs.ant-bloody-theme;
+      name = "Ant";
     };
   };
 }
