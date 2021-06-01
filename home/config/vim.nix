@@ -50,7 +50,7 @@ in
       set hidden
       set number
       set wildmode=longest,list,full
-      set undofile
+      set noundofile
       set report=0
       set nojoinspaces
       set signcolumn=yes

@@ -101,6 +101,7 @@ in
         zip
         unzip
         sshfs
+        ispell
       ];
     };
   };
