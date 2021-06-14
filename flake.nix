@@ -29,6 +29,7 @@
           inherit system;
           config = {
             allowUnfree = true;
+            allowBroken = true;
           };
         }
       );
@@ -45,7 +46,19 @@
             ({ pkgs, ... }: {
               nix = {
                 package = pkgs.nixFlakes;
-                extraOptions = "experimental-features = nix-command flakes";
+                extraOptions = ''
+                  experimental-features = nix-command flakes
+                  keep-outputs = true
+                  keep-derivations = true
+                '';
+              };
+            })
+            ({ inputs, ... }: {
+              nix.registry = {
+                nixpkgs = {
+                  from = { id = "nixpkgs"; type = "indirect"; };
+                  flake = inputs.nixpkgs;
+                };
               };
             })
             (import ./nixos/profile.nix)

@@ -11,5 +11,6 @@
     ./polybar.nix
     ./i3.nix
     ./alacritty.nix
+    ./direnv.nix
   ];
 }

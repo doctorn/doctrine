@@ -83,7 +83,6 @@ in
         binutils
         clang_10
         cmake
-        direnv
         ghc
         gnumake
         llvm
