@@ -68,6 +68,7 @@ in
         blueman
         neofetch
         mailspring
+        zoom-us
 
         dejavu_fonts
         fira-code 

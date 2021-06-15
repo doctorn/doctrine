@@ -29,4 +29,6 @@
     networkmanager.enable = true;
     networkmanager.enableStrongSwan = true;
   };
+
+  nix.autoOptimiseStore = true;
 }
